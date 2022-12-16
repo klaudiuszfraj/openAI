@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  dockerserver:
+    build: 
+      context: .
+      target: production
+    ports:
+      - "8080:8080"
+    command: npm run dev
