@@ -13,5 +13,8 @@ module.exports = {
       },
     env: {
         node: true
+    },
+    rules: {
+      "@typescript-eslint/no-misused-promises": "warn"
     }
   }; 

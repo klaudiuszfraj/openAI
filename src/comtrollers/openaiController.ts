@@ -7,6 +7,8 @@ interface AlowedSizes {
   medium: '512x512';
   large: '1024x1024';
 }
+interface GenerateImage { prompt: string; size: SizeType }
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -14,7 +16,7 @@ const openai = new OpenAIApi(configuration);
 
 export const generateImage = async (req: Request, res: Response) => {
   try {
-    const { prompt, size }: { prompt: string; size: SizeType } = req.body;
+    const { prompt, size } = req.body as GenerateImage;
     // todo:: sanitize inputs
     const allowedSizes: AlowedSizes = {
       small: '256x256',
