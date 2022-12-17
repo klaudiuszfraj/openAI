@@ -1,8 +1,8 @@
-import express from "express";
-import {generateImage} from '../comtrollers/openaiController'
+import express from 'express';
+import { generateImage } from '../comtrollers/openaiController';
 
 const router = express.Router();
 
-router.post("/generateImage", generateImage);
+router.post('/generateImage', generateImage);
 
-export default router
+export default router;
