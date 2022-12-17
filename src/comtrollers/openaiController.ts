@@ -32,7 +32,7 @@ export const generateImage = async (req: Request, res: Response) => {
       data: imageUrl,
     });
   } catch (error) {
-    // todo:: error handler
+    // todo:: error handlerr
     res.status(400).json({
       success: false,
       message: 'The image could not be generated',
