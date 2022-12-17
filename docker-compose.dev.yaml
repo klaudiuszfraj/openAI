@@ -3,7 +3,6 @@ services:
   dockerserver:
     build: 
       context: .
-      dockerfile: Dockerfile.local
       target: development
     ports:
       - "8080:8080"

@@ -1,12 +1,16 @@
-import express from "express"
-const app = express()
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config() 
 
-const port = process.env.PORT || 8080
+import openaiRoutes from './routes/openaiRoutes';
+const app = express();
+const port = process.env.PORT || 8080;
 
-app.get('/', (req, res) => {
-    res.send('8888888')
-})
+// todo:: add express helmet?
+app.use(express.json())
+app.use(express.urlencoded({ extended: false}))
+app.use('/openai', openaiRoutes)
 
 app.listen(port, () => {
-    console.log('express listening at port', port);
-})
+  console.log(`Server listening at port ${port}`);
+});
