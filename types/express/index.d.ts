@@ -1,9 +1,9 @@
-import logger from '../../src/utils/logger';
+import winston = require('winston');
 
 declare global {
   namespace Express {
     interface Request {
-      logger: logger;
+      logger: winston.Logger;
     }
   }
 }
