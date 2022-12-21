@@ -1,14 +1,15 @@
 import { Request, Response } from 'express';
-import { Configuration, OpenAIApi } from 'openai';
-import { GenerateImageResponse, GenerateImageBody, AlowedSizes } from '../../types/generateImage.types';
+import openApiInstance from '../utils/openApiInstance';
+import {
+  GenerateImageResponse,
+  GenerateImageBody,
+  AlowedSizes,
+} from '../../types/generateImage.types';
 
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
-
-export const generateImage = async (req: Request, res: Response<GenerateImageResponse>) => {
+export const generateImage = async (
+  req: Request,
+  res: Response<GenerateImageResponse>
+) => {
   try {
     const { prompt, size } = req.body as GenerateImageBody;
     // todo:: sanitize inputs
@@ -17,7 +18,7 @@ export const generateImage = async (req: Request, res: Response<GenerateImageRes
       medium: '512x512',
       large: '1024x1024',
     };
-    const response = await openai.createImage({
+    const response = await openApiInstance.createImage({
       prompt,
       n: 1,
       size: allowedSizes[size] || '512x512',
