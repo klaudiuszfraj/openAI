@@ -1,5 +1,5 @@
 import express from 'express';
-import { generateImage } from '../controllers/openaiController';
+import { generateImage } from '../controllers/generateImage';
 
 const router = express.Router();
 

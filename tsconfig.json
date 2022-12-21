@@ -102,5 +102,9 @@
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "./types",
+    "./src"
   ]
 }
