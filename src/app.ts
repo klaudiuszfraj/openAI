@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+import helmet from "helmet";
 import logger from './utils/logger';
 import openaiRoutes from './routes/openaiRoutes';
 import loggerMiddleware from './middleware/loggerMiddleware';
@@ -11,7 +12,7 @@ import errorMiddleware from './middleware/errorMiddleware';
 const app = express();
 const port = process.env.PORT || 8080;
 
-// todo:: add express helmet?
+app.use(helmet())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(loggerMiddleware);
