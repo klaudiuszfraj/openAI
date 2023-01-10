@@ -1,5 +1,8 @@
 OpenAI
+## Local setup
+Just run `./iwantlocalsetup.sh` in root folder and add your `OPENAI_API_KEY`from `https://beta.openai.com/account/api-keys` 
 
+## Requests
 ```http
    ### Expect code 200 and link to an image
    POST http://localhost:8080/openai/generateImage
